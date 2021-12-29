@@ -158,7 +158,7 @@ class WidgetRestControllerTest {
     }
 
     @Test
-    @DisplayName("get /rest/widget/1")
+    @DisplayName("GET /rest/widget/1")
     void testGetWidgetById() throws Exception {
         // Setup our mocked service
         Widget widget = new Widget(1l, "Widget Example", "Description Example", 1);
