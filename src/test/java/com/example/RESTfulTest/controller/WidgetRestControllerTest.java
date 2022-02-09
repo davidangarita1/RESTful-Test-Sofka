@@ -34,7 +34,6 @@ class WidgetRestControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-
     @Test
     @DisplayName("GET /widgets success")
     void testGetWidgetsSuccess() throws Exception {
@@ -54,10 +53,12 @@ class WidgetRestControllerTest {
 
                 // Validate the returned fields
                 .andExpect(jsonPath("$", hasSize(2)))
+
                 .andExpect(jsonPath("$[0].id", is(1)))
                 .andExpect(jsonPath("$[0].name", is("Widget Name")))
                 .andExpect(jsonPath("$[0].description", is("Description")))
                 .andExpect(jsonPath("$[0].version", is(1)))
+
                 .andExpect(jsonPath("$[1].id", is(2)))
                 .andExpect(jsonPath("$[1].name", is("Widget 2 Name")))
                 .andExpect(jsonPath("$[1].description", is("Description 2")))
@@ -158,7 +159,7 @@ class WidgetRestControllerTest {
     }
 
     @Test
-    @DisplayName("get /rest/widget/1")
+    @DisplayName("GET /rest/widget/1")
     void testGetWidgetById() throws Exception {
         // Setup our mocked service
         Widget widget = new Widget(1l, "Widget Example", "Description Example", 1);
